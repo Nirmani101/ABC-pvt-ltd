@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC (Pvt) Ltd - Beyond Boundaries. Across Industries.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy-blue: #0A2342;
+            --gold: #BF9B30;
+            --white: #FFFFFF;
+            --light-gray: #F5F5F5;
+            --dark-gray: #333333;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--gold);
+            color: var(--white);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--navy-blue);
+            border: 2px solid var(--navy-blue);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--navy-blue);
+            color: var(--white);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--navy-blue);
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: var(--navy-blue);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: var(--white);
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-toggler {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 2rem;
+        }
+
+        .nav-link {
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(148, 169, 196, 0.7);
+            z-index: 1;
+        }
+
+        .slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slideshow-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 2s ease;
+            object-fit: cover;
+        }
+
+        .slideshow-item.active {
+            opacity: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-subtitle {
+            font-family: 'Lora', serif;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-cta {
+            margin-top: 2rem;
+        }
+
+        .hero-cta .btn:first-child {
+            margin-right: 1rem;
+        }
+
+        /* Who We Are Section */
+        .about {
+            background-color: var(--light-gray);
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .about-text {
+            max-width: 800px;
+            margin-bottom: 3rem;
+            font-size: 1.2rem;
+        }
+
+        .world-map {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            background: url('/api/placeholder/900/500') center/contain no-repeat;
+        }
+
+        .map-point {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .map-point:hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            box-shadow: 0 0 10px var(--gold);
+        }
+
+        .map-point:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            opacity: 0;
+            animation: pulse 2s infinite;
+        }
+
+        .point-sl {
+            top: 65%;
+            left: 70%;
+        }
+
+        .point-eu {
+            top: 30%;
+            left: 50%;
+        }
+
+        .point-af {
+            top: 60%;
+            left: 52%;
+        }
+
+        .map-tooltip {
+            position: absolute;
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transform: translateY(-40px);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .map-point:hover .map-tooltip {
+            opacity: 1;
+            transform: translateY(-50px);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* Industries Section */
+        .industries .container {
+            max-width: 1400px;
+        }
+
+        .industry-carousel {
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .industry-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .industry-card {
+            flex: 0 0 calc(33.33% - 20px);
+            margin: 0 10px;
+            min-width: 300px;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .industry-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .industry-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .industry-card:hover .industry-img img {
+            transform: scale(1.1);
+        }
+
+        .industry-content {
+            padding: 1.5rem;
+        }
+
+        .industry-title {
+            color: var(--navy-blue);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--navy-blue);
+            color: var(--white);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background-color: var(--gold);
+        }
+
+        .carousel-btn.prev {
+            left: 20px;
+        }
+
+        .carousel-btn.next {
+            right: 20px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: var(--gold);
+            transform: scale(1.2);
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            background-color: var(--navy-blue);
+            color: var(--white);
+        }
+
+        .philosophy .section-title {
+            color: var(--white);
+        }
+
+        .philosophy-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .philosophy-item {
+            flex: 0 0 calc(25% - 2rem);
+            min-width: 200px;
+            text-align: center;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .philosophy-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-10px);
+        }
+
+        .philosophy-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .philosophy-title {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Partner Section */
+        .partner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .partner-text {
+            flex: 1 1 500px;
+            padding: 2rem;
+        }
+
+        .partner-cta {
+            flex: 1 1 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .partner-cta .btn {
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-links h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-links h3:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .footer-social {
+            display: flex;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                height: 90vh;
+            }
+
+            .industry-card {
+                flex: 0 0 calc(50% - 20px);
+            }
+
+            .philosophy-item {
+                flex: 0 0 calc(50% - 2rem);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                flex-direction: column;
+                background-color: var(--navy-blue);
+                width: 100%;
+                text-align: center;
+                transition: all 0.3s ease;
+                padding: 2rem 0;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-item {
+                margin: 1.5rem 0;
+            }
+
+            .nav-toggler {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .world-map {
+                height: 300px;
+            }
+
+            .industry-card {
+                flex: 0 0 calc(100% - 20px);
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .carousel-btn.prev {
+                left: 10px;
+            }
+
+            .carousel-btn.next {
+                right: 10px;
+            }
+
+            .philosophy-item {
+                flex: 0 0 calc(100% - 2rem);
+            }
+
+            .partner {
+                text-align: center;
+            }
+
+            .partner-text, .partner-cta {
+                flex: 1 1 100%;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-cta .btn {
+                margin: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">ABC <span>Pvt Ltd</span></a>
+            <button class="nav-toggler">☰</button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">Who We Are</a></li>
+                <li class="nav-item"><a href="#industries" class="nav-link">Industries</a></li>
+                <li class="nav-item"><a href="#philosophy" class="nav-link">Our Philosophy</a></li>
+                <li class="nav-item"><a href="#partner" class="nav-link">Partner With Us</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="slideshow">
+            <img src="1.jpg" alt="Futuristic labs" class="slideshow-item active">
+            <img src="2.jpg" alt="Fishing vessels" class="slideshow-item">
+            <img src="3.jpg" alt="Agricultural fields" class="slideshow-item">
+            <img src="4.jpg" alt="Global logistics" class="slideshow-item">
+        </div>
+        <div class="hero-content">
+            <h1>Powering Progress Across the Globe</h1>
+            <p class="hero-subtitle">From cutting-edge labs to sustainable farming – explore the reach of a bold global enterprise.</p>
+            <div class="hero-cta">
+                <a href="#industries" class="btn btn-primary">Explore Our World</a>
+                <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title">Who We Are</h2>
+            <div class="about-content">
+                <p class="about-text">ABC (Pvt) Ltd is a purpose-driven enterprise, committed to shaping industries through sustainable innovation and cross-border collaboration.</p>
+                <div class="world-map">
+                    <div class="map-point point-sl">
+                        <div class="map-tooltip">Sri Lanka</div>
+                    </div>
+                    <div class="map-point point-eu">
+                        <div class="map-tooltip">Europe</div>
+                    </div>
+                    <div class="map-point point-af">
+                        <div class="map-tooltip">Africa</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="industries" class="section industries">
+        <div class="container">
+            <h2 class="section-title">What We Do – Industries We Power</h2>
+            <div class="industry-carousel">
+                <div class="industry-container">
+                    <div class="industry-card">
+                        <div class="industry-img">
+                            <img src="Pharmaceuticals.jpg" alt="Pharmaceuticals">
+                        </div>
+                        <div class="industry-content">
+                            <h3 class="industry-title">Pharmaceuticals</h3>
+                            <p>Reliable healthcare solutions driven by science and technology.</p>
+                        </div>
+                    </div>
+                    <div class="industry-card">
+                        <div class="industry-img">
+                            <img src="Seafood Processing.jpg" alt="Seafood Processing">
+                        </div>
+                        <div class="industry-content">
+                            <h3 class="industry-title">Seafood Processing</h3>
+                            <p>Premium seafood processed in state-of-the-art European facilities.</p>
+                        </div>
+                    </div>
+                    <div class="industry-card">
+                        <div class="industry-img">
+                            <img src="Aquaculture.jpg" alt="Aquaculture">
+                        </div>
+                        <div class="industry-content">
+                            <h3 class="industry-title">Aquaculture</h3>
+                            <p>Eco-friendly fish farming practices for a sustainable tomorrow.</p>
+                        </div>
+                    </div>
+                    <div class="industry-card">
+                        <div class="industry-img">
+                            <img src="Agriculture.jpg" alt="Agriculture">
+                        </div>
+                        <div class="industry-content">
+                            <h3 class="industry-title">Agriculture</h3>
+                            <p>High-quality produce from tropical farms to global markets.</p>
+                        </div>
+                    </div>
+                    <div class="industry-card">
+                        <div class="industry-img">
+                            <img src="Global Trade.jpg" alt="Global Trade">
+                        </div>
+                        <div class="industry-content">
+                            <h3 class="industry-title">Global Trade</h3>
+                            <p>Seamless commodity trading connecting continents.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev">&#8249;</button>
+                <button class="carousel-btn next">&#8250;</button>
+                <div class="carousel-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="section philosophy">
+        <div class="container">
+            <h2 class="section-title">Why ABC? – Our Philosophy</h2>
+            <div class="philosophy-grid">
+                <div class="philosophy-item">
+                    <div class="philosophy-icon">🌍</div>
+                    <h3 class="philosophy-title">Global Reach</h3>
+                    <p>Connecting markets across continents with our international presence.</p>
+                </div>
+                <div class="philosophy-item">
+                    <div class="philosophy-icon">♻️</div>
+                    <h3 class="philosophy-title">Sustainable Approach</h3>
+                    <p>Building businesses that respect and preserve our planet for future generations.</p>
+                </div>
+                <div class="philosophy-item">
+                    <div class="philosophy-icon">💡</div>
+                    <h3 class="philosophy-title">Innovation First</h3>
+                    <p>Pioneering breakthrough solutions through research and development.</p>
+                </div>
+                <div class="philosophy-item">
+                    <div class="philosophy-icon">👥</div>
+                    <h3 class="philosophy-title">Community-Centered</h3>
+                    <p>Creating positive impact in every community we operate in.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner With Us Section -->
+    <section id="partner" class="section partner">
+        <div class="partner-text">
+            <h2>Partner With Us</h2>
+            <p>Seeking a partner in pharmaceuticals, seafood, or global commodities? Let's build together.</p>
+        </div>
+        <div class="partner-cta">
+            <a href="contact.html" class="btn btn-primary">Let's Talk</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">ABC <span>Pvt Ltd</span></div>
+                    <p>Beyond Boundaries. Across Industries.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">t</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#industries">Industries</a></li>
+                        <li><a href="#philosophy">Our Philosophy</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Industries</h3>
+                    <ul>
+                        <li><a href="#">Pharmaceuticals</a></li>
+                        <li><a href="#">Seafood Processing</a></li>
+                        <li><a href="#">Aquaculture</a></li>
+                        <li><a href="#">Agriculture</a></li>
+                        <li><a href="#">Global Trade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>123 Business Avenue</li>
+                        <li>Colombo, Sri Lanka</li>
+                        <li>info@abcpvtltd.com</li>
+                        <li>+94 11 123 4567</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ABC (Pvt) Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === "#") return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu after clicking a link
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        navToggler.innerHTML = '☰';
+                    }
+                }
+            });
+        });
+
+        // Hero slideshow
+        const slideshowItems = document.querySelectorAll('.slideshow-item');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slideshowItems[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slideshowItems.length;
+            slideshowItems[currentSlide].classList.add('active');
+        }
+
+        // Change slide every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Industry carousel
+        const industryContainer = document.querySelector('.industry-container');
+        const industryCards = document.querySelectorAll('.industry-card');
+        const carouselBtnPrev = document.querySelector('.carousel-btn.prev');
+        const carouselBtnNext = document.querySelector('.carousel-btn.next');
+        const carouselDots = document.querySelectorAll('.dot');
+
+        let cardWidth = industryCards[0].offsetWidth + 20; // Card width + margin
+        let cardsPerView = window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
+        let position = 0;
+        let maxPosition = Math.ceil(industryCards.length / cardsPerView) - 1;
+        let currentPosition = 0;
+
+        // Update card width on window resize
+        window.addEventListener('resize', function() {
+            cardWidth = industryCards[0].offsetWidth + 20;
+            cardsPerView = window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
+            maxPosition = Math.ceil(industryCards.length / cardsPerView) - 1;
+            
+            // Reset position to prevent empty spaces
+            if (currentPosition > maxPosition) {
+                currentPosition = maxPosition;
+                position = -(currentPosition * cardsPerView * cardWidth);
+                updateCarouselPosition();
+            }
+        });
+
+        function updateCarouselPosition() {
+            industryContainer.style.transform = `translateX(${position}px)`;
+            
+            // Update active dot
+            carouselDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentPosition);
+            });
+        }
+
+        carouselBtnNext.addEventListener('click', function() {
+            if (currentPosition < maxPosition) {
+                currentPosition++;
+                position = -(currentPosition * cardsPerView * cardWidth);
+                updateCarouselPosition();
+            }
+        });
+
+        carouselBtnPrev.addEventListener('click', function() {
+            if (currentPosition > 0) {
+                currentPosition--;
+                position = -(currentPosition * cardsPerView * cardWidth);
+                updateCarouselPosition();
+            }
+        });
+
+        // Carousel dot navigation
+        carouselDots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                currentPosition = parseInt(this.getAttribute('data-index'));
+                position = -(currentPosition * cardsPerView * cardWidth);
+                updateCarouselPosition();
+            });
+        });
+
+        // Map point hover animation
+        const mapPoints = document.querySelectorAll('.map-point');
+
+        mapPoints.forEach(point => {
+            point.addEventListener('mouseenter', function() {
+                this.querySelector('.map-tooltip').style.opacity = '1';
+            });
+            
+            point.addEventListener('mouseleave', function() {
+                this.querySelector('.map-tooltip').style.opacity = '0';
+            });
+        });
+
+        // Initial setup
+        updateCarouselPosition();
+
+        // Preload images for better performance
+        function preloadImages() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                const src = img.getAttribute('src');
+                if (src) {
+                    const newImg = new Image();
+                    newImg.src = src;
+                }
+            });
+        }
+
+        // Run preload on load
+        window.addEventListener('load', preloadImages);
+
+        // Add animation on scroll
+        function animateOnScroll() {
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight * 0.75) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Add initial styles for animation
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+
+        // Run animation on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        // Run once on load
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
